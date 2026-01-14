@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>令和→西暦変換</title>
+</head>
+<body>
+    <h1>令和 → 西暦変換</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">変換</button>
+    </form>
+
+    {% if result %}
+        <h2>西暦 {{ result }} 年</h2>
+    {% endif %}
+
+    <a href="/">トップへ戻る</a>
+</body>
+</html>

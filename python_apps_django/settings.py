@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "work05",
+    "work06",
 ]
 
 MIDDLEWARE = [
@@ -153,7 +154,7 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # setup basicauth middleware
-if os.environ.get("ENABLE_BASIC_AUTH") == "true" or False:
+if os.environ.get("ENABLE_BASIC_AUTH") == "true":
     MIDDLEWARE.append("basicauth.middleware.BasicAuthMiddleware")
     BASICAUTH_USERS = {
         os.environ.get("BASIC_AUTH_USERNAME"): os.environ.get("BASIC_AUTH_PASSWORD"),
