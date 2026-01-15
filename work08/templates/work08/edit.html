@@ -1,0 +1,21 @@
+<h1>メモ編集</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">保存</button>
+</form>
+
+<form method="post">
+...
+</form>
+
+<form method="post" action="{% url 'work08:delete' memo.pk %}">
+    {% csrf_token %}
+    <button type="submit">削除</button>
+</form>
+
+
+<br>
+
+<a href="{% url 'work08:top' %}">一覧へ戻る（保存しない）</a>
