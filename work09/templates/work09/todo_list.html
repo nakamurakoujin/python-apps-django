@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>TODO一覧</title>
+</head>
+<body>
+
+<h2>新規TODO追加</h2>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">登録</button>
+</form>
+
+<hr>
+
+<h1>TODO一覧</h1>
+
+<table border="1">
+    <tr>
+        <th>状態</th>
+        <th>タイトル</th>
+        <th>期限日</th>
+        <th>登録日</th>
+        <th>操作</th>
+    </tr>
+
+    {% for todo in todos %}
+    <tr>
+        <td>
+            {% if todo.is_completed %}
+                完了
+            {% else %}
+                未完了
+            {% endif %}
+        </td>
+        <td>
+            <a href="{% url 'todo_edit' todo.id %}">
+                {{ todo.title }}
+            </a>
+        </td>
+        <td>{{ todo.due_date|date:"Y年n月j日" }}</td>
+        <td>{{ todo.created_at|date:"Y年n月j日 H:i" }}</td>
+        <td>
+            <a href="{% url 'todo_edit' todo.id %}">編集</a>
+             |
+             <a href="{% url 'todo_delete' todo.id %}" onclick="return confirm('削除しますか？');">
+                 削除
+            </a>
+        </td>
+
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>
