@@ -1,29 +1,54 @@
+{% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="ja">
+
 <head>
-    <meta charset="utf-8">
+    <meta charset="UTF-8">
     <title>TODO編集</title>
+    <link rel="stylesheet" href="{% static 'work09/ebit_style.css' %}">
 </head>
+
 <body>
 
-<h1>TODO編集</h1>
+    <div class="container">
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
+        <h1>TODO編集</h1>
 
-    <p>
-        完了:
-        <input type="checkbox" name="is_completed"
-               {% if todo.is_completed %}checked{% endif %}>
-    </p>
+        <form method="post">
+            {% csrf_token %}
 
-    <button type="submit">更新</button>
-</form>
+            <p>
+                <label>タイトル</label>
+                {{ form.title }}
+            </p>
 
-<br>
+            <p>
+                <label>期限日</label>
+                {{ form.due_date }}
+            </p>
 
-<a href="{% url 'todo_list' %}">一覧に戻る</a>
+            <p>
+                <label>
+                    {{ form.is_completed }}
+                    完了
+                </label>
+            </p>
 
+            <div class="button-group">
+                <button type="submit" class="save">更新</button>
+
+                <a href="{% url 'todo_delete' todo.id %}">
+                    <button type="button" class="delete">削除</button>
+                </a>
+
+                <a href="{% url 'todo_list' %}">
+                    <button type="button" class="back">一覧に戻る</button>
+                </a>
+            </div>
+
+        </form>
+
+    </div>
 </body>
+
 </html>
