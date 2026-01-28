@@ -1,0 +1,105 @@
+body {
+    font-family: "Segoe UI", sans-serif;
+    background: #f4f6f9;
+    padding: 40px;
+}
+
+.container {
+    max-width: 600px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #4f6cff;
+}
+
+input[type="checkbox"] {
+    width: auto;
+    transform: scale(1.2);
+}
+
+button {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    transition: opacity 0.2s;
+}
+
+button:hover {
+    opacity: 0.85;
+}
+
+.save {
+    background: #4f6cff;
+    color: white;
+}
+
+.delete {
+    background: #ff4f4f;
+    color: white;
+}
+
+.back {
+    background: #888;
+    color: white;
+}
+label {
+    display: block;
+    font-weight: 500;
+    color: #555;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+p {
+    margin-bottom: 20px;
+}
+
+p label:has(input[type="checkbox"]) {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+.button-group {
+    margin-top: 30px;
+    display: flex;
+    gap: 10px;
+}
+
+.button-group button {
+    margin-right: 0;
+}
+
+.button-group a {
+    text-decoration: none;
+}

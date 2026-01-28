@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "work07",
     "work08",
     "work09",
+    "work10",
 ]
 
 MIDDLEWARE = [
@@ -67,7 +68,7 @@ ROOT_URLCONF = "python_apps_django.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -162,3 +163,6 @@ if os.environ.get("ENABLE_BASIC_AUTH") == "true":
     BASICAUTH_USERS = {
         os.environ.get("BASIC_AUTH_USERNAME"): os.environ.get("BASIC_AUTH_PASSWORD"),
     }
+LOGIN_REDIRECT_URL = "/work10/"
+LOGOUT_REDIRECT_URL = "/accounts/login/"
+
